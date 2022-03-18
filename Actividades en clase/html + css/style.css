@@ -1,0 +1,58 @@
+body {
+  /* El hecho de definir la fuente dentro del body, hará que todos los textos de la página reciban esta misma fuente, a menos que se sobrescriba alguna en particular */
+  font-family: Roboto; /* Esta fuente está importada en la línea 11 del html. Google Fonts tiene muchas fuentes gratis*/
+  font-size: 0.8rem; /* Indica el tamaño de la letra, como se vio en clases rem es una medida relativa */
+  line-height: 1rem; /* Averiguar qué es */
+  font-weight: 500; /* Averiguar qué es */
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.video-card {
+  box-shadow: 5px 0px 15px -3px #000000; /* Agrega la sombra a las cajas */
+  border-radius: 4px; /* Redondea el borde */
+  min-width: 250px;
+  margin: 10px;
+  overflow: hidden; /* Averiguar qué es */
+  transition: width 0.5s; /* Averiguar qué es */
+  width: 20%;
+}
+
+.video-card:hover {
+  /* Cuándo se pare el mouse encima ("hover") los elementos de la clase video-card, tendrán este estilo, sobrescribiendo los por defecto de la clase */
+  max-width: 350px;
+  width: 30%;
+}
+
+.video-info {
+  color: #909090;
+  padding: 0 12px 6px 12px;
+}
+
+.video-title {
+  color: #030303;
+}
+
+.video-thumbnail {
+  max-height: auto;
+  max-width: 100%;
+  /* Queremos que la imagen ocupe el 100% del espacio del padre, y que el alto se ajuste proporcionalmente */
+}
+
+.video-link {
+  /* Evitamos el clásico subrayado de los links */
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+}
+
+#page-title {
+  margin: auto;
+}

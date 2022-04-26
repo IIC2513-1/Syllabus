@@ -5,10 +5,14 @@ const Todo = (props) => {
   return (
     <Div>
       <TodoContent>{props.content}</TodoContent>
-      <button>completar</button>
+      <Button onClick={() => props.delete(props.id)}>Borrar</Button>
     </Div>
   )
 };
+
+const Button = styled.button`
+  border-radius: 4px;
+`;
 
 const Div = styled.div`
   display: flex;

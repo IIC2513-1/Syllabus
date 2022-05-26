@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "isaaccarrera",
+    "password": null,
+    "database": "todolist_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "isaaccarrera",
+    "password": null,
+    "database": "todolist_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "isaaccarrera",
+    "password": null,
+    "database": "todolist_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

@@ -1,23 +1,23 @@
-import React, { useEffect, useState} from "react";
-import Todo from './Todo';
+import React, { useEffect, useState } from "react";
+import Todo from "./Todo";
 
 const TodoList = (props) => {
   const [deletedCount, setDeletedCount] = useState(0);
-  const [newTodo, setNewTodo] = useState('');
+  const [newTodo, setNewTodo] = useState("");
   const [todos, setTodos] = useState([
     {
       id: 1,
-      content: 'Pasear al perro',
+      content: "Pasear al perro",
       completed: false,
     },
     {
       id: 2,
-      content: 'Pasear al gato',
+      content: "Pasear al gato",
       completed: true,
     },
     {
       id: 3,
-      content: 'Hacer la tarea de cálculo 2',
+      content: "Hacer la tarea de cálculo 2",
       completed: false,
     },
   ]);
@@ -25,25 +25,33 @@ const TodoList = (props) => {
   // CADA VEZ QUE CAMBIE MIS LISTA DE TAREAS, QUIERO QUE
   // EL INPUT SE VACIE
   useEffect(() => {
-    setNewTodo('');
+    setNewTodo("");
   }, [todos]);
+
+  useEffect(() => {
+    const getAboutInfo = async () => {
+      const response = await fetch("http://localhost:8000/about");
+      const resJson = await response.json();
+      console.log(resJson);
+    };
+    getAboutInfo();
+  }, []);
 
   // const completeTodo = (id) => {
   //   console.log('completar Todo con id:', id);
-    
 
   // };
 
   const deleteTodo = (id) => {
     const newTodos = todos.filter((todo) => {
-      return todo.id !== id
-    })
+      return todo.id !== id;
+    });
     setTodos(newTodos);
     setDeletedCount(deletedCount + 1);
   };
 
   const handleChange = (event) => {
-    setNewTodo(event.target.value)
+    setNewTodo(event.target.value);
   };
 
   const handleClick = () => {
@@ -56,17 +64,25 @@ const TodoList = (props) => {
   return (
     <div>
       {todos.map((todo) => {
-        return (
-          !todo.completed ? (
-            <Todo id={todo.id} key={todo.id} content={todo.content} delete={deleteTodo} />
-          ) : null
-          )
-        })}
-      <input name="newTodo" type="text" onChange={handleChange} value={newTodo} />
+        return !todo.completed ? (
+          <Todo
+            id={todo.id}
+            key={todo.id}
+            content={todo.content}
+            delete={deleteTodo}
+          />
+        ) : null;
+      })}
+      <input
+        name="newTodo"
+        type="text"
+        onChange={handleChange}
+        value={newTodo}
+      />
       <button onClick={handleClick}>Agregar</button>
       <p>Has borrado {deletedCount} tareas</p>
     </div>
-  )
-}
+  );
+};
 
 export default TodoList;

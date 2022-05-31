@@ -1,5 +1,7 @@
 const express = require("express");
 const Sequelize = require("sequelize");
+const cors = require("cors");
+
 const bodyParser = require("body-parser");
 const dbConfig = require("./config/config.json");
 const app = express();
@@ -17,6 +19,7 @@ sequelize
   .then(() => console.log("Conectado a la base de datos a través de Sequelize"))
   .catch((e) => console.log("error", e));
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(authMiddleware); // puedo lanzar un error directamente
 app.use(profileRouter);

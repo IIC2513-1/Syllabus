@@ -14,7 +14,7 @@ const { database, username, password, ...options } = developmentConfig;
 const sequelize = new Sequelize(database, username, password, options);
 sequelize
   .authenticate()
-  .then(() => console.log("Conectado a la base de datos"))
+  .then(() => console.log("Conectado a la base de datos a través de Sequelize"))
   .catch((e) => console.log("error", e));
 
 app.use(bodyParser.urlencoded({ extended: true }));
